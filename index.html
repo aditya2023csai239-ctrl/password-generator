@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate strong, unique passwords locally and securely." />
+    <title>Fortify | Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Fortify home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>fortify</span>
+        </a>
+        <span class="security-badge"><span class="status-dot"></span> local &amp; private</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">YOUR DIGITAL DEFENSE</p>
+        <h1>Stronger passwords.<br /><em>Zero repeats.</em></h1>
+        <p class="intro">Create truly unique passwords with cryptographic randomness. Nothing leaves your device.</p>
+      </section>
+
+      <section class="generator-card" aria-labelledby="generator-title">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">PASSWORD GENERATOR</p>
+            <h2 id="generator-title">Your secure password</h2>
+          </div>
+          <span class="unique-label"><span aria-hidden="true">✓</span> Never repeated</span>
+        </div>
+
+        <div class="password-output">
+          <output id="passwordOutput" aria-live="polite">—</output>
+          <button class="icon-button" id="copyButton" type="button" aria-label="Copy password" title="Copy password" disabled>
+            <span aria-hidden="true">▣</span>
+          </button>
+        </div>
+        <div class="strength-row">
+          <div class="strength-meter" aria-label="Password strength: excellent">
+            <span class="meter-segment active"></span><span class="meter-segment active"></span><span class="meter-segment active"></span><span class="meter-segment active"></span>
+          </div>
+          <span class="strength-text">Excellent</span>
+          <span class="entropy" id="entropyValue">— bits entropy</span>
+        </div>
+
+        <button class="generate-button" id="generateButton" type="button">
+          <span aria-hidden="true">↻</span> Generate new password
+        </button>
+
+        <div class="controls">
+          <div class="control">
+            <div class="control-label"><label for="length">Length</label><output id="lengthValue">20</output></div>
+            <input id="length" type="range" min="12" max="48" value="20" />
+            <div class="range-labels"><span>12</span><span>48</span></div>
+          </div>
+          <div class="control toggles">
+            <span class="label">Include</span>
+            <label class="toggle-row"><input id="uppercase" type="checkbox" checked /><span class="switch"></span> Uppercase letters</label>
+            <label class="toggle-row"><input id="numbers" type="checkbox" checked /><span class="switch"></span> Numbers</label>
+            <label class="toggle-row"><input id="symbols" type="checkbox" checked /><span class="switch"></span> Symbols</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-row" aria-label="Security features">
+        <div class="trust-item"><span class="trust-icon">⌁</span><div><strong>Cryptographically random</strong><small>Powered by your browser’s secure random API</small></div></div>
+        <div class="trust-item"><span class="trust-icon">◉</span><div><strong>Stored on your device</strong><small>Your history never leaves this browser</small></div></div>
+        <div class="trust-item"><span class="trust-icon">♢</span><div><strong>Uniqueness guaranteed</strong><small>Every password is checked before delivery</small></div></div>
+      </section>
+
+      <footer><span>FORTIFY PASSWORD GENERATOR</span><span>Built for better security · history is kept locally</span></footer>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
